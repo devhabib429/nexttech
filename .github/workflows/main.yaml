@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Transfer code to server
-        uses: appleboy/scp-action@master
+      - name: SSH into server
+        uses: appleboy/ssh-action@master
         with:
           host: 18.118.193.104
           username: ubuntu
