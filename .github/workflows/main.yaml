@@ -23,4 +23,4 @@ jobs:
             cd /var/www/html/nexttech
             sudo rm -rf *
             sudo git pull origin master
-            sudo cp * /var/www/html
+            sudo cp /var/www/html/nexttech/* /var/www/html/
