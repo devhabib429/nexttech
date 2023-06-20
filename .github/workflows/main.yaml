@@ -20,4 +20,5 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo cp -r $GITHUB_WORKSPACE/* /var/www/html/
+            sudo cd /var/www/html/
+            sudo git pull origin master
