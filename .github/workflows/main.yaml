@@ -20,4 +20,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            sudo cp -r $GITHUB_WORKSPACE/* /var/www/html/
+            cd /var/www/html/nexttech
+            sudo git pull
+            sudo cp -r /var/www/html/nexttech/* /var/www/html/
+            
