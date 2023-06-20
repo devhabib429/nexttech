@@ -1,4 +1,4 @@
-name: Deploy to Ubuntu Server
+name: Deploy to Apache
 
 on:
   push:
@@ -13,12 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: SSH into server
+      - name: SSH into Ubuntu
         uses: appleboy/ssh-action@master
         with:
-          host: ec2-18-118-193-104.us-east-2.compute.amazonaws.com
-          username: ubuntu
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/html
-            git pull origin master
+            sudo cp -r $GITHUB_WORKSPACE/* /var/www/html/
